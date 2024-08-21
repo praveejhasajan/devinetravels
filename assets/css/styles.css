@@ -199,9 +199,9 @@ input {
   margin-right: 10px; /* Aligns the logo to the left */
 }
 
-.logo__img {
-  height: 50px; /* Adjust the size of the logo */
-  width: 50px;
+logo__img {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
 
