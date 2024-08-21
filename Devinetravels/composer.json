@@ -5,5 +5,7 @@
             "C5384132\\Devinetravels\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
+    }
 }
