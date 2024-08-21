@@ -1,0 +1,27 @@
+{
+    "name": "vendor/devinetravels",
+    "description": "A website for Devine Travels",
+    "type": "project",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "DevineTravels\\": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "echo \"Dependencies installed.\""
+        ],
+        "post-update-cmd": [
+            "echo \"Dependencies updated.\""
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable",
+    "license": "MIT"
+}
