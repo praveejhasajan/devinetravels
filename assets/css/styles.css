@@ -196,14 +196,29 @@ input {
   background-color: transparent;
 }
 .header__logo {
-  margin-right: 10px; /* Aligns the logo to the left */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally if needed */
+  margin-right: auto; /* Pushes logo to the left if using flexbox */
 }
 
-logo__img {
-    width: 150px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
+.header__logo img {
+  width: 100px; /* Adjust width as needed */
+  height: 40px; /* Maintain aspect ratio */
 }
 
+
+@media screen and (max-width: 768px) {
+  .header__logo img {
+      width: 80px; /* Smaller logo for smaller screens */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header__logo img {
+      width: 120px; /* Larger logo for larger screens */
+  }
+}
 
 /*=============== NAV ===============*/
 .nav {
