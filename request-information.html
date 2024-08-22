@@ -27,9 +27,9 @@
             z-index: 1; /* Ensure content is above the background image */
         }
         .info-form {
-            max-width: 500px;
+            max-width: 800px;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -38,11 +38,13 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2; /* Ensure form is above other content */
+          /*  display: none; /* Hide form by default */
+            box-sizing: border-box;
         }
         .info-form h2 {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 22px;
             color: #333;
         }
         .info-form label {
@@ -53,37 +55,53 @@
         }
         .info-form input[type="text"],
         .info-form input[type="email"],
-        .info-form textarea {
+        .info-form input[type="number"],
+        .info-form input[type="date"],
+        .info-form textarea,
+        .info-form select {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Reduced margin */
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
         }
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .form-group > div {
+            flex: 1;
+            min-width: 280px; /* Adjust as needed */
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between; /* Distribute buttons side by side */
+            margin-top: 20px;
+        }
         .submit-button,
-        .close-button {
+        .cancel-button {
             width: 48%;
             padding: 10px;
-            margin: 5px 1%;
-            font-size: 16px;
+            font-size: 14px; /* Reduced font size */
             color: #fff;
-            background-color: #28a745;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             text-align: center;
             display: inline-block;
         }
-        .close-button {
+        .submit-button {
+            background-color: #28a745;
+        }
+        .cancel-button {
             background-color: #dc3545;
         }
-        .submit-button:hover,
-        .close-button:hover {
+        .submit-button:hover {
             background-color: #218838;
-            color: white;
         }
-        .close-button:hover {
+        .cancel-button:hover {
             background-color: #c82333;
         }
         .whatsapp-button {
@@ -106,7 +124,7 @@
             <div class="home__data">
                 <span class="home__data-subtitle">Discover your place</span>
                 <h1 class="home__data-title">Explore The <br> Best <b>Beautiful <br> Mountains</b></h1>
-                <a href="#" class="button">Explore</a>
+                <a href="#" class="button" id="openForm">Request Information</a>
             </div>
 
             <div class="home__social">
@@ -128,20 +146,133 @@
         <form>
             <h2>Request Information</h2>
             
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+            <div class="form-group">
+                <div>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
             
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <div class="form-group">
+                <div>
+                    <label for="mobile">Mobile:</label>
+                    <input type="text" id="mobile" name="mobile" required>
+                </div>
+                <div>
+                    <label for="destination">Destination(s):</label>
+                    <input type="text" id="destination" name="destination" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div>
+                    <label for="travelStartDate">Start Date:</label>
+                    <input type="date" id="travelStartDate" name="travelStartDate" required>
+                </div>
+                <div>
+                    <label for="travelEndDate">End Date:</label>
+                    <input type="date" id="travelEndDate" name="travelEndDate" required>
+                </div>
+            </div>
 
-            <label for="mobile">Mobile:</label>
-            <input type="text" id="mobile" name="mobile" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            
-            <button type="submit" class="submit-button">Submit</button>
-            <button type="button" id="closeForm" class="close-button">Close</button>
+            <div class="form-group">
+                <div>
+                    <label for="duration">Duration of Stay:</label>
+                    <input type="text" id="duration" name="duration" required>
+                </div>
+                <div>
+                    <label for="companions">Number of Travelers:</label>
+                    <input type="number" id="companions" name="companions" min="1" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label for="accommodation">Type of Accommodation:</label>
+                    <select id="accommodation" name="accommodation" required>
+                        <option value="Hotel">Hotel</option>
+                        <option value="Resort">Resort</option>
+                        <option value="Villa">Villa</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="activities">Activities of Interest:</label>
+                    <input type="text" id="activities" name="activities" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label for="budget">Budget Range:</label>
+                    <select id="budget" name="budget" required>
+                        <option value="6K - 10K">6K - 10K per person</option>
+                        <option value="10K - 15K">10K - 15K per person</option>
+                        <option value="15K - 20K">15K - 20K per person</option>
+                        <option value="20K - 30K">20K - 30K per person</option>
+                        <option value="30K+">30K+ per person</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="transportation">Mode of Transportation:</label>
+                    <select id="transportation" name="transportation" required>
+                        <option value="Flight">Flight</option>
+                        <option value="Train">Train</option>
+                        <option value="Car Rental">Car Rental</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label for="insurance">Travel Insurance:</label>
+                    <select id="insurance" name="insurance" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="payment">Payment Options:</label>
+                    <input type="text" id="payment" name="payment" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label for="emergencyContact">Emergency Contact:</label>
+                    <input type="text" id="emergencyContact" name="emergencyContact" required>
+                </div>
+                <div>
+                    <label for="loyaltyPrograms">Loyalty Programs:</label>
+                    <input type="text" id="loyaltyPrograms" name="loyaltyPrograms">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label for="specialRequests">Special Requests:</label>
+                    <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <!-- Updated Buttons -->
+                    <button type="submit" class="submit-button">Submit</button>
+                    <button type="button" class="cancel-button" id="closeForm">Cancel</button>
+
+            <!-- Updated JavaScript -->
+        <script>
+            document.getElementById('closeForm').addEventListener('click', () => {
+            window.location.href = 'index.html'; // Redirect to the home page
+                 });
+        </script>
+            </div>
         </form>
     </div>
 
@@ -149,19 +280,80 @@
     <a href="https://wa.me/919591533598?text=Hi!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="whatsapp-button">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
     </a>
+
     <script>
         // JavaScript to handle form display
-        document.querySelectorAll('.place__button').forEach(button => {
-            button.addEventListener('click', (event) => {
-                document.getElementById('infoForm').style.display = 'block';
-                // You can set the place name in the form if needed
-                document.getElementById('infoForm').querySelector('h2').innerText = `Request Information for ${event.target.dataset.place}`;
-            });
+        document.getElementById('openForm').addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent the default link action
+            document.getElementById('infoForm').style.display = 'block';
         });
 
         document.getElementById('closeForm').addEventListener('click', () => {
             document.getElementById('infoForm').style.display = 'none';
         });
+      
+    document.getElementById('requestForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Collect form data
+        const formData = new FormData(this);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            mobile: formData.get('mobile'),
+            destination: formData.get('destination'),
+            travelDates: formData.get('travelDates'),
+            duration: formData.get('duration'),
+            companions: formData.get('companions'),
+            accommodation: formData.get('accommodation'),
+            activities: formData.get('activities'),
+            budget: formData.get('budget'),
+            transportation: formData.get('transportation'),
+            specialRequests: formData.get('specialRequests'),
+            insurance: formData.get('insurance'),
+            payment: formData.get('payment'),
+            emergencyContact: formData.get('emergencyContact'),
+            loyaltyPrograms: formData.get('loyaltyPrograms')
+        };
+
+        // Format data into a WhatsApp message
+        const message = `*Request Information*\n\n` +
+            `*Full Name:* ${data.name}\n` +
+            `*Email:* ${data.email}\n` +
+            `*Mobile:* ${data.mobile}\n` +
+            `*Destination(s):* ${data.destination}\n` +
+            `*Travel Dates:* ${data.travelDates}\n` +
+            `*Duration of Stay:* ${data.duration}\n` +
+            `*Number of Travelers:* ${data.companions}\n` +
+            `*Type of Accommodation:* ${data.accommodation}\n` +
+            `*Activities of Interest:* ${data.activities}\n` +
+            `*Budget Range:* ${data.budget}\n` +
+            `*Mode of Transportation:* ${data.transportation}\n` +
+            `*Special Requests:* ${data.specialRequests}\n` +
+            `*Travel Insurance:* ${data.insurance}\n` +
+            `*Payment Options:* ${data.payment}\n` +
+            `*Emergency Contact:* ${data.emergencyContact}\n` +
+            `*Loyalty Programs:* ${data.loyaltyPrograms}`;
+
+        // Encode the message for URL
+        const encodedMessage = encodeURIComponent(message);
+
+        // WhatsApp API URL
+        const whatsappURL = `https://wa.me/919591533598?text=${encodedMessage}`;
+
+        // Set WhatsApp button link and show it
+        const whatsappButton = document.getElementById('whatsappButton');
+        whatsappButton.href = whatsappURL;
+        whatsappButton.style.display = 'block';
+
+        // Optionally, open WhatsApp automatically
+        window.location.href = whatsappURL;
+    });
+
+    document.getElementById('closeForm').addEventListener('click', () => {
+        window.location.href = 'index.html'; // Redirect to the home page
+    });
+
     </script>
 
 </body>
