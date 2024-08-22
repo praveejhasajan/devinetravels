@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .home {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            background: url('assets/img/IMG_3655.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+        .home__container {
+            position: relative;
+            z-index: 1; /* Ensure content is above the background image */
+        }
+        .info-form {
+            max-width: 500px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* Ensure form is above other content */
+        }
+        .info-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .info-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .info-form input[type="text"],
+        .info-form input[type="email"],
+        .info-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit-button,
+        .close-button {
+            width: 48%;
+            padding: 10px;
+            margin: 5px 1%;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+        }
+        .close-button {
+            background-color: #dc3545;
+        }
+        .submit-button:hover,
+        .close-button:hover {
+            background-color: #218838;
+            color: white;
+        }
+        .close-button:hover {
+            background-color: #c82333;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .whatsapp-button img {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--==================== Home Section ====================-->
+    <section class="home" id="home">
+        <div class="home__container container grid">
+            <div class="home__data">
+                <span class="home__data-subtitle">Discover your place</span>
+                <h1 class="home__data-title">Explore The <br> Best <b>Beautiful <br> Mountains</b></h1>
+                <a href="#" class="button">Explore</a>
+            </div>
+
+            <div class="home__social">
+                <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                    <i class="ri-facebook-box-fill"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                    <i class="ri-instagram-fill"></i>
+                </a>
+                <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                    <i class="ri-twitter-fill"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--==================== Information form ====================-->
+    <div id="infoForm" class="info-form">
+        <form>
+            <h2>Request Information</h2>
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <button type="submit" class="submit-button">Submit</button>
+            <button type="button" id="closeForm" class="close-button">Close</button>
+        </form>
+    </div>
+
+    <!-- WhatsApp Button Code -->
+    <a href="https://wa.me/919591533598?text=Hi!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="whatsapp-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+    </a>
+    <script>
+        // JavaScript to handle form display
+        document.querySelectorAll('.place__button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                document.getElementById('infoForm').style.display = 'block';
+                // You can set the place name in the form if needed
+                document.getElementById('infoForm').querySelector('h2').innerText = `Request Information for ${event.target.dataset.place}`;
+            });
+        });
+
+        document.getElementById('closeForm').addEventListener('click', () => {
+            document.getElementById('infoForm').style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>
