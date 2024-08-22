@@ -143,7 +143,7 @@
 
     <!--==================== Information form ====================-->
     <div id="infoForm" class="info-form">
-        <form>
+        <form action="submit_request.php" method="POST"></form>>
             <h2>Request Information</h2>
             
             <div class="form-group">
@@ -261,100 +261,87 @@
                 </div>
             </div>
 
-            <div class="button-group">
-                <!-- Updated Buttons -->
-                    <button type="submit" class="submit-button">Submit</button>
-                    <button type="button" class="cancel-button" id="closeForm">Cancel</button>
-
-            <!-- Updated JavaScript -->
-        <script>
-            document.getElementById('closeForm').addEventListener('click', () => {
-            window.location.href = 'index.html'; // Redirect to the home page
-                 });
-        </script>
-            </div>
-        </form>
-    </div>
-
-    <!-- WhatsApp Button Code -->
-    <a href="https://wa.me/919591533598?text=Hi!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="whatsapp-button">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
-    </a>
-
-    <script>
-        // JavaScript to handle form display
-        document.getElementById('openForm').addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent the default link action
-            document.getElementById('infoForm').style.display = 'block';
+              <!-- Form fields here -->
+             
+                <!-- Form fields here -->
+                <button type="submit" class="submit-button">Submit</button>
+              <button type="button" class="cancel-button" id="closeForm">Cancel</button>
+          </form>
+      </div>
+  
+      <!-- WhatsApp Button Code -->
+      <a id="whatsappButton" href="#" target="_blank" class="whatsapp-button" >
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+      </a>
+  
+      <script>
+          document.getElementById('requestForm').addEventListener('submit', function(event) {
+              event.preventDefault(); // Prevent default form submission
+  
+              // Collect form data
+              const formData = new FormData(this);
+              const data = {
+                  name: formData.get('name'),
+                  email: formData.get('email'),
+                  mobile: formData.get('mobile'),
+                  destination: formData.get('destination'),
+                  travelDates: formData.get('travelDates'),
+                  duration: formData.get('duration'),
+                  companions: formData.get('companions'),
+                  accommodation: formData.get('accommodation'),
+                  activities: formData.get('activities'),
+                  budget: formData.get('budget'),
+                  transportation: formData.get('transportation'),
+                  specialRequests: formData.get('specialRequests'),
+                  insurance: formData.get('insurance'),
+                  payment: formData.get('payment'),
+                  emergencyContact: formData.get('emergencyContact'),
+                  loyaltyPrograms: formData.get('loyaltyPrograms')
+              };
+  
+              // Format data into a WhatsApp message
+              const message = `*Request Information*\n\n` +
+                  `*Full Name:* ${data.name}\n` +
+                  `*Email:* ${data.email}\n` +
+                  `*Mobile:* ${data.mobile}\n` +
+                  `*Destination(s):* ${data.destination}\n` +
+                  `*Travel Dates:* ${data.travelDates}\n` +
+                  `*Duration of Stay:* ${data.duration}\n` +
+                  `*Number of Travelers:* ${data.companions}\n` +
+                  `*Type of Accommodation:* ${data.accommodation}\n` +
+                  `*Activities of Interest:* ${data.activities}\n` +
+                  `*Budget Range:* ${data.budget}\n` +
+                  `*Mode of Transportation:* ${data.transportation}\n` +
+                  `*Special Requests:* ${data.specialRequests}\n` +
+                  `*Travel Insurance:* ${data.insurance}\n` +
+                  `*Payment Options:* ${data.payment}\n` +
+                  `*Emergency Contact:* ${data.emergencyContact}\n` +
+                  `*Loyalty Programs:* ${data.loyaltyPrograms}`;
+  
+              // Encode the message for URL
+              const encodedMessage = encodeURIComponent(message);
+  
+              // WhatsApp API URL
+              const whatsappURL = `https://wa.me/919591533598?text=${encodedMessage}`;
+  
+              // Open WhatsApp with the formatted message
+              window.open(whatsappURL, '_blank');
+          });
+          document.querySelectorAll('.place__button').forEach(button => {
+          button.addEventListener('click', (event) => {
+          document.getElementById('infoForm').style.display = 'block';
+        document.getElementById('infoForm').querySelector('h2').innerText = `Request Information for ${event.target.dataset.place}`;
+       });
         });
 
-        document.getElementById('closeForm').addEventListener('click', () => {
-            document.getElementById('infoForm').style.display = 'none';
-        });
-      
-    document.getElementById('requestForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Collect form data
-        const formData = new FormData(this);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            mobile: formData.get('mobile'),
-            destination: formData.get('destination'),
-            travelDates: formData.get('travelDates'),
-            duration: formData.get('duration'),
-            companions: formData.get('companions'),
-            accommodation: formData.get('accommodation'),
-            activities: formData.get('activities'),
-            budget: formData.get('budget'),
-            transportation: formData.get('transportation'),
-            specialRequests: formData.get('specialRequests'),
-            insurance: formData.get('insurance'),
-            payment: formData.get('payment'),
-            emergencyContact: formData.get('emergencyContact'),
-            loyaltyPrograms: formData.get('loyaltyPrograms')
-        };
-
-        // Format data into a WhatsApp message
-        const message = `*Request Information*\n\n` +
-            `*Full Name:* ${data.name}\n` +
-            `*Email:* ${data.email}\n` +
-            `*Mobile:* ${data.mobile}\n` +
-            `*Destination(s):* ${data.destination}\n` +
-            `*Travel Dates:* ${data.travelDates}\n` +
-            `*Duration of Stay:* ${data.duration}\n` +
-            `*Number of Travelers:* ${data.companions}\n` +
-            `*Type of Accommodation:* ${data.accommodation}\n` +
-            `*Activities of Interest:* ${data.activities}\n` +
-            `*Budget Range:* ${data.budget}\n` +
-            `*Mode of Transportation:* ${data.transportation}\n` +
-            `*Special Requests:* ${data.specialRequests}\n` +
-            `*Travel Insurance:* ${data.insurance}\n` +
-            `*Payment Options:* ${data.payment}\n` +
-            `*Emergency Contact:* ${data.emergencyContact}\n` +
-            `*Loyalty Programs:* ${data.loyaltyPrograms}`;
-
-        // Encode the message for URL
-        const encodedMessage = encodeURIComponent(message);
-
-        // WhatsApp API URL
-        const whatsappURL = `https://wa.me/919591533598?text=${encodedMessage}`;
-
-        // Set WhatsApp button link and show it
-        const whatsappButton = document.getElementById('whatsappButton');
-        whatsappButton.href = whatsappURL;
-        whatsappButton.style.display = 'block';
-
-        // Optionally, open WhatsApp automatically
-        window.location.href = whatsappURL;
-    });
-
-    document.getElementById('closeForm').addEventListener('click', () => {
-        window.location.href = 'index.html'; // Redirect to the home page
-    });
-
-    </script>
-
-</body>
-</html>
+document.getElementById('closeForm').addEventListener('click', () => {
+    document.getElementById('infoForm').style.display = 'none';
+    window.location.href = 'index.html'; // Redirect to home page
+});
+          document.getElementById('closeForm').addEventListener('click', () => {
+              window.location.href = 'index.html'; // Redirect to the home page
+          });
+      </script>
+  
+  </body>
+  </html>
