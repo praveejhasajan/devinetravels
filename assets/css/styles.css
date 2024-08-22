@@ -1119,4 +1119,17 @@ textarea {
   .home__container, .home__img {
     height: 640px;
   }
+
+/*whatsapp Button style*/
+  .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+  }
+  .whatsapp-button img {
+      width: 60px;
+      height: 60px;
+  }
+  
 }
