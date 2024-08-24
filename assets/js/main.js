@@ -202,32 +202,40 @@ sr.reveal(`.about__img-overlay,
     interval: 100,
 })
 
-/*==================== DARK LIGHT THEME ====================*/ 
-const themeButton = document.getElementById('theme-button')
-const darkTheme = 'dark-theme'
-const iconTheme = 'ri-sun-line'
+/*==================== DARK LIGHT THEME ====================*/
 
-// Previously selected topic (if user selected)
-const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
+// Get the theme button element
+const themeButton = document.getElementById('theme-button');
 
-// We obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line'
+// Define the classes for dark theme and icon
+const darkTheme = 'dark-theme';
+const iconTheme = 'ri-sun-line';  // This should be the icon for the light theme
 
-// We validate if the user previously chose a topic
+// Retrieve the previously selected theme and icon from localStorage
+const selectedTheme = localStorage.getItem('selected-theme');
+const selectedIcon = localStorage.getItem('selected-icon');
+
+// Function to get the current theme
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
+
+// Function to get the current icon
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-sun-line' : 'ri-moon-line';
+
+// Apply the previously selected theme and icon if available
 if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-  themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme)
+  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
+  themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme);
 }
 
-// Activate / deactivate the theme manually with the button
+// Add an event listener to the theme button to toggle theme and icon
 themeButton.addEventListener('click', () => {
-    // Add or remove the dark / icon theme
-    document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
-    // We save the theme and the current icon that the user chose
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
-})
+  // Toggle dark theme class on the body
+  document.body.classList.toggle(darkTheme);
+
+  // Toggle icon class on the theme button
+  themeButton.classList.toggle(iconTheme);
+
+  // Save the current theme and icon in localStorage
+  localStorage.setItem('selected-theme', getCurrentTheme());
+  localStorage.setItem('selected-icon', getCurrentIcon());
+});

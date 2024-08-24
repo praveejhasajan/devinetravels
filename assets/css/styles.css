@@ -229,7 +229,7 @@ input {
 }
 
 .nav__logo, .nav__toggle {
-  color: var(--white-color);
+  color: #748D92;
 }
 
 .nav__logo {
@@ -353,6 +353,7 @@ input {
   font-size: var(--biggest-font-size);
   font-weight: var(--font-medium);
   margin-bottom: var(--mb-2-5);
+  color : #865d36
 }
 
 .home__social {
