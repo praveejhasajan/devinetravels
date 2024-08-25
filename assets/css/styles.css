@@ -160,6 +160,7 @@ input {
 
 .main {
   overflow-x: hidden;
+  background-color: #124e66;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -379,6 +380,7 @@ input {
   right: 0;
   bottom: 1rem;
   width: 228px;
+  
 }
 
 .home__info-title {
@@ -488,7 +490,8 @@ textarea {
 /*=============== ABOUT ===============*/
 .about__data {
   text-align: center;
-}
+  color:#f0f0f0;
+} 
 
 .about__container {
   row-gap: 2.5rem;
