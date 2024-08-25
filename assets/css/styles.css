@@ -193,7 +193,8 @@ input {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: transparent;
+  background-color: #0FA4AF;
+  
 }
 .header__logo {
   display: flex;
@@ -1133,4 +1134,84 @@ textarea {
       height: 60px;
   }
   
+  /*Inclusion and exclution*/
+  /* Container Styles */
+.mb8 {
+  margin-bottom: 8px;
+}
+
+.at_pkg_inc_exc_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+/* Radio Buttons */
+.inc-exc-button {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.inc-exc-radio {
+  display: none;
+}
+
+.inc-exc-radio:checked + label {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Details Box */
+.inc-exc-data {
+  margin-top: 20px;
+  width: 90%;
+  max-width: 400px; /* Keeps the table compact */
+  height: 320px; /* Fixed height */
+  overflow-y: auto; /* Enables scrolling if content overflows */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+/* Table Styles */
+.incl-excl-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.incl-excl-table th, .incl-excl-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap; /* Keeps content in one line */
+}
+
+.incl-excl-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .inc-exc-button {
+      font-size: 16px;
+      padding: 8px 16px;
+  }
+  
+  .inc-exc-data {
+      padding: 12px;
+  }
+}
+
 }

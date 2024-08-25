@@ -67,7 +67,7 @@
         <a href="https://wa.me/919591533598?text=Hi!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="whatsapp-button">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
         </a>
-        
+        <script src="incExcToggle.js"></script>
         <main class="main">
             <!--==================== HOME ====================-->
             <section class="home" id="home">
@@ -353,6 +353,25 @@
                     </div>
                 </div>
             </section>
+            <div name="incexclusion_box" class="mb8 at_pkg_inc_exc_section">
+                <div class="row sbcw relative">
+                    <!-- Radio Buttons -->
+                    <div class="col-xs-12 text-center">
+                        <input type="radio" name="inc-exc-radio" class="inc-exc-radio" id="IncExcRadio1" checked>
+                        <label for="IncExcRadio1" class="inc-exc-button ripple">Inclusions</label>
+                        
+                        <input type="radio" name="inc-exc-radio" class="inc-exc-radio" id="IncExcRadio2">
+                        <label for="IncExcRadio2" class="inc-exc-button ripple">Exclusions</label>
+                    </div>
+                    
+                    <!-- Details Box -->
+                    <div id="incExcDetails" class="inc-exc-data text-center">
+                        <!-- Content will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+            
+            
             <!--==================== SPONSORS ====================-->
             <section class="sponsor section">
                 <div class="sponsor__container container grid">
