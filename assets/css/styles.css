@@ -232,7 +232,7 @@ input {
 }
 
 .nav__logo, .nav__toggle {
-  color: #748D92;
+  color: #91c781;
 }
 
 .nav__logo {
@@ -493,6 +493,13 @@ textarea {
   text-align: center;
   color:#f0f0f0;
 } 
+/* Added color property for image in the about section part 2 */
+
+.about__img-big {
+  width: full-width;
+  height:70%;
+  
+}
 
 .about__container {
   row-gap: 2.5rem;
@@ -535,6 +542,7 @@ textarea {
 .discover__card {
   position: relative;
   width: 200px;
+  height: auto;
   overflow: var(--img-hidden);
 }
 
@@ -542,6 +550,10 @@ textarea {
   position: absolute;
   bottom: 1.5rem;
   left: 1rem;
+}
+.swiper-wrapper {
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 0.5rem;
 }
 
 .discover__title, 
@@ -574,6 +586,7 @@ textarea {
 
 /*=============== EXPERIENCE ===============*/
 .experience__container {
+  color: #91ddd8;
   row-gap: 2.5rem;
   justify-content: center;
   justify-items: center;
@@ -587,6 +600,8 @@ textarea {
 }
 
 .experience__number {
+  color: #dc3545;
+
   font-size: var(--h2-font-size);
   font-weight: var(--font-semi-bold);
   margin-bottom: var(--mb-0-5);
@@ -630,6 +645,7 @@ textarea {
 /*=============== VIDEO ===============*/
 .video__container {
   padding-bottom: 1rem;
+  color: #91ddd8;
 }
 
 .video__description {
@@ -655,10 +671,11 @@ textarea {
 /*=============== PLACES ===============*/
 .place__card, .place__img {
   height: 230px;
+  width: 230px;
 }
 
 .place__container {
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
 }
 
@@ -688,7 +705,7 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: .75rem .75rem 1rem;
+  padding: 1rem 1rem 3rem 1rem;
 }
 
 .place__rating {
@@ -724,7 +741,7 @@ textarea {
   position: absolute;
   right: 0;
   bottom: 0;
-  padding: .75rem 1rem;
+  padding: .5rem 1rem;
 }
 
 /*=============== SUBSCRIBE ===============*/
@@ -776,6 +793,9 @@ textarea {
   width: 90px;
   filter: invert(0.7);
   transition: var(--img-transition);
+}
+.mb8{
+  color: #8b6a6a;
 }
 
 /*=============== FOOTER ===============*/
@@ -1010,10 +1030,9 @@ textarea {
   .about__description {
     margin-bottom: var(--mb-2);
   }
-  .discover__container {
-    width: 610px;
-    margin-left: auto;
-    margin-right: auto;
+  .discover__card swiper-slide {
+    background-color: #ccc;
+    height: fit-content;
   }
   .discover__container,
   .place__container {
@@ -1072,8 +1091,15 @@ textarea {
   .discover__card {
     width: 237px;
   }
+  .discover__img {
+    width: 300px;
+  }
+  .manali{
+   
+    height: 350px;
+  }
   .discover__container {
-    width: 700px;
+    width: full-width;
   }
   .discover__data {
     left: 1.5rem;
