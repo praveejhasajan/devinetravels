@@ -39,3 +39,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize with the inclusions content
     updateContent();
 });
+
