@@ -541,19 +541,65 @@ textarea {
 /*=============== DISCOVER ===============*/
 .discover__card {
   position: relative;
-  width: 200px;
+  width: 100%; /* Full width for mobile */
+  max-width: 200px; /* Max width for larger screens */
   height: auto;
   overflow: var(--img-hidden);
 }
 
-.discover__data {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1rem;
-}
 .swiper-wrapper {
-  grid-template-columns: repeat(4, 1fr); 
+  display: grid; /* Ensure grid layout is used */
+  grid-template-columns: repeat(2, 1fr); /* Default to 2 columns on mobile */
   gap: 0.5rem;
+}
+
+/* For larger screens */
+@media (min-width: 768px) {
+  .swiper-wrapper {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for larger screens */
+  }
+}
+
+.experience__container {
+  color: #91ddd8;
+  row-gap: 2.5rem;
+  justify-content: center;
+  justify-items: center;
+}
+
+.experience__content {
+  display: grid; /* Ensure grid layout is used */
+  grid-template-columns: 1fr; /* Default to 1 column on mobile */
+  column-gap: 1rem;
+  padding: 0 1rem; /* Adjust padding for mobile */
+}
+
+/* For larger screens */
+@media (min-width: 768px) {
+  .experience__content {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
+    padding: 0 2rem; /* Maintain original padding for larger screens */
+  }
+}
+
+.experience__overlay {
+  overflow: var(--img-hidden);
+  width: 100%; /* Full width on mobile */
+}
+
+/* For larger screens */
+@media (min-width: 768px) {
+  .experience__overlay:nth-child(1) {
+    width: 263px; /* Original width for larger screens */
+    margin-right: 2rem;
+  }
+  
+  .experience__overlay:nth-child(2) {
+    width: 120px; /* Original width for larger screens */
+    position: absolute;
+    top: 2rem;
+    right: 0;
+  }
 }
 
 .discover__title, 
@@ -566,9 +612,16 @@ textarea {
   margin-bottom: var(--mb-0-25);
 }
 
-.discover__description {
-  display: block;
-  font-size: var(--smaller-font-size);
+/* Adjust font sizes for mobile */
+@media (max-width: 600px) {
+  .discover__title {
+    font-size: var(--h4-font-size); /* Smaller font size */
+  }
+
+  .discover__description {
+    display: block;
+    font-size: var(--small-font-size); /* Adjusted for mobile */
+  }
 }
 
 .discover__img {
@@ -579,29 +632,8 @@ textarea {
   transform: var(--img-scale);
 }
 
-.swiper-container-3d .swiper-slide-shadow-left,
-.swiper-container-3d .swiper-slide-shadow-right {
-  background-image: none;
-}
-
-/*=============== EXPERIENCE ===============*/
-.experience__container {
-  color: #91ddd8;
-  row-gap: 2.5rem;
-  justify-content: center;
-  justify-items: center;
-}
-
-.experience__content {
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 1rem;
-  justify-items: center;
-  padding: 0 2rem;
-}
-
 .experience__number {
   color: #dc3545;
-
   font-size: var(--h2-font-size);
   font-weight: var(--font-semi-bold);
   margin-bottom: var(--mb-0-5);
@@ -628,18 +660,6 @@ textarea {
 
 .experience__overlay {
   overflow: var(--img-hidden);
-}
-
-.experience__overlay:nth-child(1) {
-  width: 263px;
-  margin-right: 2rem;
-}
-
-.experience__overlay:nth-child(2) {
-  width: 120px;
-  position: absolute;
-  top: 2rem;
-  right: 0;
 }
 
 /*=============== VIDEO ===============*/
@@ -669,14 +689,18 @@ textarea {
 }
 
 /*=============== PLACES ===============*/
+/* Default (large screens) */
+/* Default (large screens) */
 .place__card, .place__img {
   height: 230px;
   width: 230px;
 }
 
 .place__container {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
+  gap: 1rem; /* Space between cards */
 }
 
 .place__card {
@@ -742,7 +766,123 @@ textarea {
   right: 0;
   bottom: 0;
   padding: .5rem 1rem;
+  z-index: 3; /* Ensure button is on top and clickable */
 }
+
+/* Small screens (768px and below) - Pair of two place cards */
+@media only screen and (max-width: 768px) {
+  .place__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .place__card, .place__img {
+    height: auto;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .place__title {
+    font-size: var(--h4-font-size);
+  }
+
+  .place__subtitle {
+    font-size: var(--small-font-size);
+  }
+
+  .place__button {
+    padding: .4rem .8rem;
+  }
+
+  .place__rating-icon {
+    font-size: .65rem;
+  }
+
+  .place__rating-number {
+    font-size: var(--smaller-font-size);
+  }
+}
+
+/* Extra small screens (480px and below) - Pair of two cards */
+@media only screen and (max-width: 480px) {
+  .place__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .place__card, .place__img {
+    height: auto;
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .place__title {
+    font-size: var(--h5-font-size);
+  }
+
+  .place__subtitle {
+    font-size: var(--smaller-font-size);
+  }
+
+  .place__button {
+    padding: .3rem .6rem;
+  }
+
+  .place__rating-icon {
+    font-size: .6rem;
+  }
+
+  .place__rating-number {
+    font-size: var(--smallest-font-size);
+  }
+  
+  /* Special case for the first card (full height and content overlay) */
+  .place__card:first-child .place__img {
+    height: 100%; /* Ensure full height for the first image */
+    object-fit: cover; /* Ensure the image covers the entire area */
+    width: 100%; /* Full width */
+  }
+
+  /* Make the content overlay the image */
+  .place__card:first-child .place__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.3); /* Lighter transparent overlay */
+    padding: 1rem;
+    z-index: 1;
+  }
+  
+  /* Move content slightly upward for the first card */
+  .place__card:first-child .place__title,
+  .place__card:first-child .place__subtitle,
+  .place__card:first-child .place__rating {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 1rem; /* Adjust to move content upward */
+  }
+
+  .place__card:first-child .place__title {
+    margin-top: 1.5rem; /* Adjust spacing above title */
+  }
+  
+  /* Ensure button remains clickable */
+  .place__card:first-child .place__button {
+    position: absolute;
+    bottom: 1rem; /* Adjust for proper placement */
+    right: 1rem; /* Keep distance from bottom-right corner */
+    z-index: 3; /* Ensure button is on top and clickable */
+  }
+}
+
 
 /*=============== SUBSCRIBE ===============*/
 .subscribe__bg {
