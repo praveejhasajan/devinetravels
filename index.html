@@ -472,14 +472,29 @@
                         </ul>
                     </div>
                 </div> -->
-
                 <div class="footer__rights">
                     <p class="footer__copy">&#169; 2023 Devine Travels. All rights reserved.</p>
                     <div class="footer__terms">
-                        <a href="#" class="footer__terms-link" onclick="openPopup('https://devinetravels.in/assets/doc/term.pdf')">Terms & Agreements</a>
-                        <a href="#" class="footer__terms-link" onclick="openPopup('https://devinetravels.in/assets/doc/policy.pdf')">Privacy Policy</a>
+                        <a href="#" class="footer__terms-link" onclick="openPopup('terms.html')">Terms & Agreements</a>
+                        <a href="#" class="footer__terms-link" onclick="openPopup('privacy.html')">Privacy Policy</a>
                     </div>
                 </div>
+                
+                <script>
+                    let popupWindow; // Variable to store the popup reference
+                
+                    function openPopup(url) {
+                        // Open the specified URL in a new window
+                        popupWindow = window.open(url, '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes');
+                    }
+                
+                    function closePopup() {
+                        if (popupWindow) {
+                            popupWindow.close(); // Close the popup window
+                        }
+                    }
+                </script>
+                               
                 
                 <!-- Pop-up Modal -->
                 <div id="pdfPopup" class="popup">
