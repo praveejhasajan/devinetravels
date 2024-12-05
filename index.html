@@ -244,7 +244,7 @@
                             <img src="assets/img/Manali.JPG" alt="" class="discover__img manali">
                             <div class="discover__data">
                                 <h2 class="discover__title">Manali</h2>
-                                <span class="discover__description">24 tours available</span>
+                                <!-- <span class="discover__description">24 tours available</span> -->
                             </div>
                         </div>
 
@@ -253,7 +253,7 @@
                             <img src="assets/img/discover1.jpg" alt="" class="discover__img">
                             <div class="discover__data">
                                 <h2 class="discover__title">Goa</h2>
-                                <span class="discover__description">15 tours available</span>
+                                <!-- <span class="discover__description">15 tours available</span> -->
                             </div>
                         </div>
 
@@ -262,7 +262,7 @@
                             <img src="assets/img/discover3.jpg" alt="" class="discover__img">
                             <div class="discover__data">
                                 <h2 class="discover__title">Shimla</h2>
-                                <span class="discover__description">18 tours available</span>
+                                <!-- <span class="discover__description">18 tours available</span> -->
                             </div>
                         </div>
 
@@ -271,7 +271,7 @@
                             <img src="assets/img/discover4.jpg" alt="" class="discover__img">
                             <div class="discover__data">
                                 <h2 class="discover__title">Rishikesh</h2>
-                                <span class="discover__description">32 tours available</span>
+                                <!-- <span class="discover__description">32 tours available</span> -->
                             </div>
                         </div>
                          <!--==================== DISCOVER 5 ====================-->
@@ -337,8 +337,6 @@
                         
                     </div>
                     
-                    
-                    
                     </div>
                     
                     
@@ -363,24 +361,24 @@
                     </div>
                 </div>
             </section>
-            <div name="incexclusion_box" class="mb8 at_pkg_inc_exc_section">
-                <div class="row sbcw relative">
+            <!-- <div name="incexclusion_box" class="mb8 at_pkg_inc_exc_section">
+                <div class="row sbcw relative"> -->
                     <!-- Radio Buttons -->
-                    <div class="col-xs-12 text-center">
+                    <!-- <div class="col-xs-12 text-center">
                         <input type="radio" name="inc-exc-radio" class="inc-exc-radio" id="IncExcRadio1" checked>
                         <label for="IncExcRadio1" class="inc-exc-button ripple">Inclusions</label>
                         
                         <input type="radio" name="inc-exc-radio" class="inc-exc-radio" id="IncExcRadio2">
                         <label for="IncExcRadio2" class="inc-exc-button ripple">Exclusions</label>
-                    </div>
+                    </div> -->
                     
                     <!-- Details Box -->
-                    <div id="incExcDetails" class="inc-exc-data text-center">
+                    <!-- <div id="incExcDetails" class="inc-exc-data text-center"> -->
                         <!-- Content will be dynamically inserted here -->
-                    </div>
+                    <!-- </div>
                 </div>
             </div>
-            
+             -->
             
             <!--==================== SPONSORS ====================-->
             <section class="sponsor section">
@@ -429,7 +427,7 @@
                         </div>
                     </div>
     
-                    <div class="footer__data">
+                    <!-- <div class="footer__data">
                         <h3 class="footer__subtitle">About</h3>
                         <ul>
                             <li class="footer__item">
@@ -473,15 +471,24 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="footer__rights">
-                    <p class="footer__copy">&#169; 2023 Devine travels. All rigths reserved.</p>
+                    <p class="footer__copy">&#169; 2023 Devine Travels. All rights reserved.</p>
                     <div class="footer__terms">
-                        <a href="#" class="footer__terms-link">Terms & Agreements</a>
-                        <a href="#" class="footer__terms-link">Privacy Policy</a>
+                        <a href="#" class="footer__terms-link" onclick="openPopup('assets/doc/terms.pdf')">Terms & Agreements</a>
+                        <a href="#" class="footer__terms-link" onclick="openPopup('assets/doc/policy.pdf')">Privacy Policy</a>
                     </div>
                 </div>
+                
+                <!-- Pop-up Modal -->
+                <div id="pdfPopup" class="popup">
+                    <div class="popup-content">
+                        <span class="popup-close" onclick="closePopup()">&times;</span>
+                        <iframe id="pdfViewer" src="" width="100%" height="500px"></iframe>
+                    </div>
+                </div>
+                
             </div>
         </footer>
 
@@ -508,6 +515,7 @@
 
   gtag('config', 'G-QKJK368BM9');
 </script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6273819301498050"
      crossorigin="anonymous"></script>
     </body>

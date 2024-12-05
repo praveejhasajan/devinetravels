@@ -201,6 +201,19 @@ sr.reveal(`.about__img-overlay,
     origin: 'right',
     interval: 100,
 })
+function openPopup(pdfFile) {
+    const popup = document.getElementById('pdfPopup');
+    const pdfViewer = document.getElementById('pdfViewer');
+    pdfViewer.src = pdfFile; // Set the PDF file path
+    popup.style.display = 'block'; // Show the pop-up
+}
+
+function closePopup() {
+    const popup = document.getElementById('pdfPopup');
+    const pdfViewer = document.getElementById('pdfViewer');
+    popup.style.display = 'none'; // Hide the pop-up
+    pdfViewer.src = ''; // Clear the iframe src
+}
 
 /*==================== DARK LIGHT THEME ====================*/
 
@@ -238,4 +251,6 @@ themeButton.addEventListener('click', () => {
   // Save the current theme and icon in localStorage
   localStorage.setItem('selected-theme', getCurrentTheme());
   localStorage.setItem('selected-icon', getCurrentIcon());
-});
+  
+}
+);
